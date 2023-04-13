@@ -1,20 +1,27 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import EmployeeState from './src/context/Employee/EmployeeState';
+import { StyleSheet, StatusBar } from 'react-native';
+
+import AppNav from './src/navigation/AppNav';
+
+// console.log(StatusBar.currentHeight)
+// console.log(StatusBar)
 
 export default function App() {
+
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
-  );
+    <EmployeeState>
+      <StatusBar style={styles.statusBarStyle}/>
+      <AppNav />
+    </EmployeeState>
+  )
+
+
 }
 
+
+
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+  statusBarStyle: {
+    marginBottom: StatusBar.currentHeight
+  }
+})  
